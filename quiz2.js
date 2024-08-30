@@ -8,3 +8,17 @@ Create a Node.js script that reads the content of a file named 'example.txt' usi
 */
 
 // answer
+
+const reading = require("fs/promises");
+
+const readFileNode = async () => {
+    try {
+      const data = await reading.readFile("./example.txt", "utf8");
+      console.log(`File content: ${data}`);
+    } catch (error) {
+      console.log("Error reading file:", error);
+    }
+  };
+  
+
+readFileNode()
