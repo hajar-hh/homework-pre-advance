@@ -10,3 +10,21 @@ hint: process.argv
 
 5- Use the command-line arguments as inputs to the login function and log the result to the console.
 */
+
+import fs from 'fs';
+
+const data = JSON.parse(fs.readFileSync('data.json', 'utf8'));
+
+function login(username, password) {
+    const user = data.filter(user => user.username === username && user.password === password);
+    if (user) {
+        return user;
+    } else {
+        return "email or password incorrect.🔐";
+    }
+}
+
+const username = process.argv[2];
+const password = process.argv[3];
+const result = login(username, password);
+console.log(result);

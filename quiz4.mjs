@@ -10,3 +10,7 @@ guide: https://www.npmjs.com/package/random-words
 4- Convert Words to Uppercase: Iterate over the array of words and convert each word to uppercase and log it to the console.
 
 */
+
+
+// answer📢
+// `the answer in the "./quiz4/index.mjs"`📍📍
