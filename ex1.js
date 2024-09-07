@@ -3,7 +3,7 @@
 
 2- Write code to import the express package into your program.
 
-3- Initialize an Express application by calling express() and store it in a variable named app.
+3- Initialize an Express application by calling express() and store it in a variable named app.✔
 
 4- Set Up a Route to Retrieve All Users: Create a GET route at /users that responds with a list of users
 
@@ -11,7 +11,7 @@
 
 5- Create a route that matches any undefined paths using app.use("*", ...). This route should respond with a "not found" message.
 
-6- Set the application to listen on port 3000 
+6- Set the application to listen on port 3000✔ 
 
 */
 
@@ -54,3 +54,29 @@ const users = [
 ];
 
 //Answer
+
+const express = require("express");
+const app = express();
+
+app.get("/users", (req, res) => {
+  res.json(users);
+});
+
+app.get("/users/:id", (req, res) => {
+  const userId = parseInt(req.params.id); 
+  const user = users.filter(u => u.id === userId);
+
+  if (user) {
+    res.json(user);
+  } else {
+    res.status(404).send("User not found");
+  }
+});
+
+app.use("*", (req, res) => {
+  res.send('not found');
+});
+
+app.listen(3000, () => {
+  console.log("app listening...");
+});

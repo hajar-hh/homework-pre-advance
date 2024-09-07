@@ -141,3 +141,27 @@ const products = [
 ];
 
 // answer
+const express = require("express");
+const app = express();
+
+app.get("/products", (req, res) => {
+  const { maxPrice, limit } = req.query;
+
+  let filteredProducts = [...products];
+
+  if (maxPrice) {
+    filteredProducts = filteredProducts.filter(
+      (p) => p.price <= parseFloat(maxPrice)
+    );
+  }
+
+  if (limit) {
+    filteredProducts = filteredProducts.slice(0, parseInt(limit));
+  }
+
+  res.send(filteredProducts);
+});
+
+app.listen(4000, () => {
+  console.log("the server is runnig in port 4000");
+});

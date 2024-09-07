@@ -1,9 +1,9 @@
 /*
 
 
-1- Import the express Package: Write code to import the express package into your program.
+1- Import the express Package: Write code to import the express package into your program.✔
 
-Initialize an Express Application: Initialize an Express application by calling express() and store it in a variable named app.
+Initialize an Express Application: Initialize an Express application by calling express() and store it in a variable named app.✔
 
 2- Create a Route to Retrieve a Product by Category, Subcategory, and ID: Set up a GET route in Express at the path /:category/:subcategory/:id. This route should extract the category, subcategory, and id parameters from the request.
 
@@ -15,7 +15,7 @@ Search for the Product by ID: If the subcategory is found, search within its pro
 
 5- Respond with the Product or Error Messages: If the product is found, send it in the response. If any step fails (i.e., category, subcategory, or product is not found), send an appropriate error message ("did not find the category," "did not find the subcategory," or "did not find the product").
 
-6- Start the Server: Set the application to listen on port 4000 and log a message to the console indicating that the server is running.
+6- Start the Server: Set the application to listen on port 4000 and log a message to the console indicating that the server is running.✔
 */
 
 const storeData = [
@@ -154,3 +154,35 @@ const storeData = [
 ];
 
 // answer
+
+const express = require("express");
+const app = express();
+
+app.get("/:category/:subcategory/:id", (req, res) => {
+  const { category, subcategory, id } = req.params;
+
+  const categoryData = storeData.filter((cat) => cat.category === category);
+  if (!categoryData) {
+    return res.status(404).send("Did not find the category");
+  }
+
+  const subcategoryData = categoryData.subcategories.filter(
+    (sub) => sub.subcategory === subcategory
+  );
+  if (!subcategoryData) {
+    return res.status(404).send("Did not find the subcategory");
+  }
+
+  const product = subcategoryData.products.filter(
+    (prod) => prod.id === parseInt(id)
+  );
+  if (!product) {
+    return res.status(404).send("Did not find the product");
+  }
+
+  res.json(product);
+});
+
+app.listen(4000, () => {
+  console.log("the server is runnig in port 4000");
+});
