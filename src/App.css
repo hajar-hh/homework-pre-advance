@@ -1,0 +1,121 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+/* ======================== */
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin: 15px 0;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  color: #363434;
+  font-size: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  background-color: #ffdffb;
+  color: #e600a1;
+}
+
+/* ======================== */
+/* ======================== */
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80vw;
+  background-color: #fff0fe;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 2px solid #e600d3;
+  border-radius: 8px;
+  background-color: #ffe6fe;
+  box-shadow: 0px 4px 8px rgba(192, 0, 230, 0.2);
+  transition: transform 0.3s;
+}
+
+h1:hover {
+  transform: scale(1.05);
+}
+
+button {
+  font-size: 1.1em;
+  color: #93139e;
+  background-color: #e600c7;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 24px;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(230, 0, 219, 0.4);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background-color: #c95cc3;
+  transform: translateY(-3px);
+}
+
+button:active {
+  background-color: #94008d;
+}
