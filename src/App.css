@@ -1,0 +1,263 @@
+body,
+html,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* _*_*_*_*_*_*_*_*_*_*_*_*_*_ */
+/* _*_*_*_*_*_*_*_*_*_*_*_*_*_ */
+
+/* navbar */
+.navbar {
+  position: absolute;
+  top: 0;
+  width: 80%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  color: black;
+  z-index: 10;
+  font-weight: bold;
+  background: transparent;
+}
+
+.navbar-logo {
+  font-size: 20px;
+  margin-left: 200px;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  font-size: 19px;
+}
+
+.navbar-links li a {
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+  color: red;
+}
+
+/* _*_*_*_*_*_*_*_*_*_*_*_*_*_ */
+/* _*_*_*_*_*_*_*_*_*_*_*_*_*_ */
+
+/*banner*/
+.banner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  padding-left: 200px;
+  background: url("./components/material/hero-bg.jpg") center/cover no-repeat;
+  color: black;
+  box-sizing: border-box;
+}
+
+.banner h4 {
+  font-size: 1.2em;
+  margin: 0;
+  font-weight: normal;
+  color: black;
+}
+
+.banner h1 {
+  font-size: 55px;
+  margin: 10px 0;
+  line-height: 1.2;
+  max-width: 50%;
+  word-wrap: break-word;
+}
+
+.banner button {
+  background-color: #ff6666;
+  width: 150px;
+  height: 50px;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.banner button:hover {
+  background-color: rgb(83, 185, 83);
+}
+
+/* _*_*_*_*_*_*_*_*_*_*_*_*_*_ */
+/* _*_*_*_*_*_*_*_*_*_*_*_*_*_ */
+
+/* card*/
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 50px auto;
+  cursor: pointer;
+}
+
+.card {
+  width: 80%;
+  text-align: center;
+  transition: transform 0.2s;
+  margin: 0 auto;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+}
+
+.card-info {
+  padding: 10px 0;
+}
+
+.card-info h3 {
+  font-size: 1em;
+  margin: 8px 0;
+}
+
+.card-info p {
+  font-size: 0.8em;
+  margin: 4px 0;
+}
+
+.card-price {
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.off-price {
+  color: red;
+  text-decoration: line-through;
+  margin-right: 5px;
+}
+
+.price {
+  color: green;
+}
+
+/* _*_*_*_*_*_*_*_*_*_*_*_*_*_ */
+/* _*_*_*_*_*_*_*_*_*_*_*_*_*_ */
+
+.cart-icon {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-count-badge {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  margin-left: 5px;
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  vertical-align: middle;
+}
+
+/* _*_*_*_*_*_*_*_*_*_*_*_*_*_ */
+/* _*_*_*_*_*_*_*_*_*_*_*_*_*_ */
+
+/* modal */
+.modal-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 20;
+}
+
+.modal {
+  background-color: rgba(51, 250, 84, 0.9);
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 5px;
+  white-space: nowrap;
+  animation: slide-in 0.5s;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(50%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* _*_*_*_*_*_*_*_*_*_*_*_*_*_ */
+/* _*_*_*_*_*_*_*_*_*_*_*_*_*_ */
+
+@media (max-width: 576px) {
+  .navbar {
+    width: 100%;
+    padding: 8px 10px;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .navbar-logo {
+    margin-left: 0;
+    font-size: 16px;
+  }
+
+  .navbar-links {
+    gap: 15px;
+    font-size: 16px;
+  }
+
+  .banner {
+    padding-left: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .banner h1 {
+    font-size: 30px;
+    max-width: 90%;
+  }
+
+  .banner button {
+    width: 120px;
+    height: 40px;
+  }
+
+  .card-container {
+    grid-template-columns: 1fr;
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .card {
+    width: 90%;
+  }
+}
