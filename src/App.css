@@ -1,0 +1,134 @@
+.app-container {
+  width: 100vw;
+  padding: 20px;
+  background-color: #f9ed69;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #6a2c70;
+}
+
+.job-card {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 16px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: calc(100% - 40px);
+  max-width: 1000px;
+}
+
+.company-logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.job-info {
+  flex-grow: 1;
+}
+
+.job-header {
+  display: flex;
+  align-items: center;
+}
+
+.company-name {
+  font-weight: bold;
+  font-size: 18px;
+  color: #091057;
+  margin-right: 10px;
+}
+
+.badge {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 12px;
+  margin-left: 5px;
+  color: #fff;
+}
+
+.new {
+  background-color: #6a2c70;
+}
+
+.featured .badge.featured {
+  background-color: #f08a5d;
+}
+
+.job-position {
+  font-size: 1.25rem;
+  color: #f08a5d;
+  margin: 0 0 8px 0;
+}
+
+.job-details {
+  display: flex;
+  gap: 8px;
+  color: #888;
+  font-size: 0.875rem;
+}
+
+.detail {
+  background-color: #fbe3fd;
+  border-radius: 10px;
+  padding: 1px;
+}
+
+.job-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill {
+  background-color: #661d6d;
+  color: #fff;
+  padding: 8px 8px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+/* ============================ */
+/* ============================ */
+
+@media (max-width: 768px) {
+  .job-card {
+    display: block;
+    text-align: center;
+    padding: 15px;
+    width: calc(100% - 30px);
+  }
+
+  .company-logo {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 15px;
+  }
+
+  .job-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .job-position {
+    font-size: 1.1rem;
+  }
+
+  .job-details {
+    justify-content: center;
+    font-size: 0.555px;
+    padding: 4px 4px;
+  }
+
+  .job-skills {
+    justify-content: center;
+    border-top: 1px solid #ddd;
+  }
+}
