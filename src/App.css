@@ -93,6 +93,13 @@ h1 {
   padding: 8px 8px;
   border-radius: 8px;
   font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.skill:hover {
+  background-color: #4e1354; 
+  transform: scale(1.05); 
 }
 
 /* ============================ */
@@ -132,3 +139,41 @@ h1 {
     border-top: 1px solid #ddd;
   }
 }
+
+/* ============================ */
+/* ============================ */
+
+.selected-filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.selected-filter {
+  background-color: #6a2c70;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.selected-filter button,
+.selected-filters button {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.3s, transform 0.3s; 
+}
+
+.selected-filter button:hover,
+.selected-filters button:hover {
+  color: #f08a5d; 
+  transform: scale(1.1); 
+}
+

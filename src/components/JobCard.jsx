@@ -1,4 +1,6 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addFilter } from "../redux/slices/filterSlice";
 
 function JobCard(props) {
   const {
@@ -14,6 +16,12 @@ function JobCard(props) {
     new: isNew,
     featured,
   } = props;
+
+  const dispatch = useDispatch();
+
+  const handleSkillClick = (skill) => {
+    dispatch(addFilter(skill));
+  };
 
   return (
     <div className={`job-card ${featured ? "featured" : ""}`}>
@@ -33,10 +41,22 @@ function JobCard(props) {
       </div>
       <div className="job-skills">
         {languages.map((lang, i) => (
-          <span key={i} className="skill">{lang}</span>
+          <span
+            key={i}
+            className="skill"
+            onClick={() => handleSkillClick(lang)}
+          >
+            {lang}
+          </span>
         ))}
         {tools.map((tool, i) => (
-          <span key={i} className="skill">{tool}</span>
+          <span
+            key={i}
+            className="skill"
+            onClick={() => handleSkillClick(tool)}
+          >
+            {tool}
+          </span>
         ))}
       </div>
     </div>
