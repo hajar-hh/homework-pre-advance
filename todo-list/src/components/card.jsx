@@ -4,14 +4,12 @@ import { FaRegCalendarAlt, FaRegStar, FaTrash, FaEllipsisV } from "react-icons/f
 
 function TaskCard({ title, description, date }) {
   const [isCompleted, setIsCompleted] = useState(false);
-  const [isStarred, setIsStarred] = useState(false); // State برای وضعیت ستاره
+  const [isStarred, setIsStarred] = useState(false); 
 
-  // تغییر وضعیت "Complete" و "Uncomplete"
   const handleToggleStatus = () => {
     setIsCompleted(!isCompleted);
   };
 
-  // تغییر وضعیت رنگ ستاره
   const toggleStar = () => {
     setIsStarred(!isStarred);
   };
@@ -40,7 +38,6 @@ function TaskCard({ title, description, date }) {
           <span>{date}</span>
         </div>
 
-        {/* خط نقطه‌چین پررنگ‌تر */}
         <hr style={{ borderTop: "2px dotted #666", margin: "20px 0" }} />
 
         <div className="d-flex align-items-center justify-content-between">
@@ -62,7 +59,7 @@ function TaskCard({ title, description, date }) {
               onClick={toggleStar}
               style={{
                 marginRight: "15px",
-                color: isStarred ? "red" : "#666", // تغییر رنگ داخلی ستاره به قرمز
+                color: isStarred ? "red" : "#666", 
                 cursor: "pointer",
               }}
             />
