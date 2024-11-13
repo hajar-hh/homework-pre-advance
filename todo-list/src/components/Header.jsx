@@ -8,7 +8,7 @@ function Header() {
 
   return (
     <div className="mb-4 mt-3 px-5 header-container d-flex flex-column ">
-      <div className="w-100 d-flex align-items-center justify-content-between ">
+      <div className="w-100 d-flex align-items-center justify-content-between">
         <InputGroup
           className="search-input"
           style={{ marginRight: "100px", width: "300px" }}
@@ -30,7 +30,9 @@ function Header() {
             backgroundColor: "#9b72c7",
             borderColor: "#9b72c7",
             fontSize: "0.8rem",
-            marginLeft: "100px",
+            marginRight: "100px", 
+            paddingRight: "40px",
+            paddingLeft: "40px"
           }}
         >
           Add New Task
@@ -56,7 +58,7 @@ function Header() {
 
         <Dropdown
           className="ms-auto"
-          style={{ width: "120px", marginTop: "5px" }}
+          style={{ width: "150px", marginTop: "5px", marginRight: "100px" }}
         >
           <Dropdown.Toggle
             variant="secondary"
@@ -65,7 +67,7 @@ function Header() {
               backgroundColor: "#f5f5f5",
               color: "#333",
               border: "1px solid #ddd",
-              width: "120px",
+              width: "150px",
               textAlign: "center",
             }}
           >
