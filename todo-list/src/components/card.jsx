@@ -75,4 +75,4 @@ function TaskCard({ title, description, date }) {
   );
 }
 
-export default TaskCard;
+export default TaskCard
