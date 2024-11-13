@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
 
-body{
-  background-color: rgb(221, 218, 218);
-  font-family: 'Cormorant Garamond', serif;
+:root, body {
+  background-color: rgb(221, 218, 218) !important;
+  font-family: "Cormorant Garamond", serif;
 }
 
 /* =================== */
@@ -15,20 +15,19 @@ body{
 
 .custom-button:hover {
   transform: scale(1.05);
-  background-color: #8a5bbf; 
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); 
+  background-color: #8a5bbf;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .task-hover {
   transition: all 0.2s ease-in-out;
   cursor: pointer;
- 
 }
 
 .task-hover:hover {
-  color: inherit; 
-  transform: scale(1.05); 
-  color:red;
+  color: inherit;
+  transform: scale(1.05);
+  color: red;
 }
 
 /* =================== */
@@ -37,13 +36,13 @@ body{
 
 header {
   padding: 1rem;
-  margin-right: 1.5rem; 
+  margin-right: 1.5rem;
 }
 
 .main-content {
   padding: 20px;
-  background-color: #f9f9f9; 
-  border-radius: 8px; 
+  background-color: #f9f9f9;
+  border-radius: 8px;
 }
 
 /* =================== */
@@ -51,11 +50,11 @@ header {
 /* =================== */
 
 .app-container {
-  height: 100vh; 
+  height: 100vh;
 }
 
 .app-container > .SideBar {
-  flex-shrink: 0; 
+  flex-shrink: 0;
 }
 
 .main-content-container {
@@ -65,7 +64,7 @@ header {
 }
 
 .main-content {
-  flex-grow: 1; 
+  flex-grow: 1;
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 8px;
@@ -77,40 +76,39 @@ header {
 /* =================== */
 
 .header-container {
-  margin-top: 20px; 
-  padding-left: 30px; 
+  margin-top: 20px;
+  padding-left: 30px;
 }
 
 .search-input {
   width: 180px;
-  margin-right: 100px; 
+  margin-right: 100px;
 }
 
 .date {
-  font-size: 0.7rem;
+  font-size: 18px;
   margin: 0 100px;
   text-align: center;
   color: rgb(139, 138, 138);
 }
 
-
 .custom-header-button {
-  font-size: 0.10rem;
+  font-size: 0.1rem;
   padding: 6px 16px;
   background-color: #7f56d9;
   border-color: #7f56d9;
   font-size: 0.85rem;
   padding: 0.5rem 1rem;
-  transition: all 0.3s ease; 
+  transition: all 0.3s ease;
   min-width: 120px;
-  margin-left: 100px; 
+  margin-left: 100px;
 }
 
 .custom-header-button:hover {
-  transform: scale(1.1); 
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
-  background-color: #9b72c7; 
-  border-color: #9b72c7; 
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: #9b72c7;
+  border-color: #9b72c7;
 }
 
 /* =================== */
@@ -118,12 +116,12 @@ header {
 /* =================== */
 
 .icon-hover {
-  transition: all 0.3s ease; 
+  transition: all 0.3s ease;
 }
 
 .icon-hover:hover {
-  transform: scale(1.2); 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  transform: scale(1.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* =================== */
@@ -133,16 +131,54 @@ header {
 .task-card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: none;
+  width: 30%;  
+  min-height: 230px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  box-sizing: border-box; 
+  padding: 1px; 
+  margin: 0 auto 0px auto; 
+  gap: 5px;
+
 }
 
 .icon-group .fa-icon {
-  color: #666; /* رنگ خاکستری برای آیکون‌ها */
+  color: #666;
 }
 
 .icon-group .fa-icon:hover {
   transform: scale(1.1);
 }
 
+/* =================== */
+/* =================== */
+/* =================== */
 
+@media (max-width: 767px) {
+  .task-card {
+    height: 140px; 
+    width: 90%; 
+  }
+}
 
+@media (min-width: 768px) {
+  .task-card {
+    height: 160px;
+    width: 70%;  
+  }
+}
 
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.col-12 {
+  padding-left: 5px; 
+  padding-right: 5px; 
+}
+
+.row > .col-12 {
+  margin-bottom: 5px; 
+}

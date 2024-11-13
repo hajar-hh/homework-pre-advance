@@ -11,7 +11,7 @@ function Header() {
       <div className="w-100 d-flex align-items-center justify-content-between">
         <InputGroup
           className="search-input"
-          style={{ marginRight: "100px", width: "300px" }}
+          style={{ marginRight: "40px", width: "300px" }}
         >
           <FormControl placeholder="Search task" aria-label="Search" />
           <InputGroup.Text
@@ -68,7 +68,6 @@ function Header() {
               color: "#333",
               border: "1px solid #ddd",
               width: "150px",
-              textAlign: "center",
             }}
           >
             Sort by...

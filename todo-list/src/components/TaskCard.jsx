@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import { FaRegCalendarAlt, FaRegStar, FaTrash, FaEllipsisV } from "react-icons/fa";
 
-function TaskCard({ title, description, date }) {
-  const [isCompleted, setIsCompleted] = useState(false);
-  const [isStarred, setIsStarred] = useState(false); 
+function TaskCard({ title, description, date, isStarred: initialIsStarred, isCompleted: initialIsCompleted }) {
+    const [isCompleted, setIsCompleted] = useState(initialIsCompleted);
+    const [isStarred, setIsStarred] = useState(initialIsStarred);
 
   const handleToggleStatus = () => {
     setIsCompleted(!isCompleted);
