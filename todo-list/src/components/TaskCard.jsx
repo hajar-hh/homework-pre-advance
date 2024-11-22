@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { FaRegCalendarAlt, FaRegStar, FaTrash, FaEllipsisV } from "react-icons/fa";
 
-function TaskCard({ title, description, date, isStarred: initialIsStarred, isCompleted: initialIsCompleted }) {
-    const [isCompleted, setIsCompleted] = useState(initialIsCompleted);
-    const [isStarred, setIsStarred] = useState(initialIsStarred);
-
-  const handleToggleStatus = () => {
-    setIsCompleted(!isCompleted);
-  };
-
-  const toggleStar = () => {
-    setIsStarred(!isStarred);
-  };
-
+function TaskCard({
+  title,
+  description,
+  date,
+  isImportant,
+  isCompleted,
+  toggleImportant,
+  toggleCompleted,
+  onDelete,
+  onEdit,
+}) {
   return (
     <Card
       className="task-card p-3"
@@ -42,7 +41,7 @@ function TaskCard({ title, description, date, isStarred: initialIsStarred, isCom
 
         <div className="d-flex align-items-center justify-content-between">
           <Button
-            onClick={handleToggleStatus}
+            onClick={toggleCompleted}
             variant={isCompleted ? "success" : "warning"}
             size="sm"
             style={{
@@ -56,15 +55,21 @@ function TaskCard({ title, description, date, isStarred: initialIsStarred, isCom
           </Button>
           <div className="icon-group d-flex align-items-center">
             <FaRegStar
-              onClick={toggleStar}
+              onClick={toggleImportant}
               style={{
                 marginRight: "15px",
-                color: isStarred ? "red" : "#666", 
+                color: isImportant ? "red" : "#666",
                 cursor: "pointer",
               }}
             />
-            <FaTrash style={{ marginRight: "15px", color: "#666", cursor: "pointer" }} />
-            <FaEllipsisV style={{ color: "#666", cursor: "pointer" }} />
+            <FaTrash
+              onClick={onDelete}
+              style={{ marginRight: "15px", color: "#666", cursor: "pointer" }}
+            />
+            <FaEllipsisV
+              onClick={onEdit}
+              style={{ color: "#666", cursor: "pointer" }}
+            />
           </div>
         </div>
       </Card.Body>
@@ -72,4 +77,4 @@ function TaskCard({ title, description, date, isStarred: initialIsStarred, isCom
   );
 }
 
-export default TaskCard
+export default TaskCard;
