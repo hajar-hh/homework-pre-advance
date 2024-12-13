@@ -6,6 +6,9 @@ import TaskList from "./components/TaskList";
 import Modall from "./components/Modal";
 import ConfirmDeleteModal from "./components/ConfirmDeleteModal";
 import EditTaskModal from "./components/EditTaskModal";
+import Signup from "./components/Auth/Signup";
+import Login from "./components/Auth/Login";
+import ProtectedRoute from "./components/Auth/ProtectedRoute"; 
 import "./App.css";
 
 function App() {
@@ -86,73 +89,87 @@ function App() {
 
   return (
     <Router>
-      <div className="app-container d-flex">
-        <SideBar
-          directories={directories}
-          selectedDirectory={selectedDirectory}
-          setSelectedDirectory={setSelectedDirectory}
-          onAddTask={handleOpenModal}
-        />
-        <div
-          className="main-content-container flex-grow-1 d-flex flex-column"
-          style={{ marginLeft: "20px" }}
-        >
-          <Header
-            handleOpenModal={handleOpenModal}
-            tasksCount={tasks.length} 
-            importantCount={importantTasks.length} 
-            completedCount={completedTasks.length} 
-            uncompletedCount={uncompletedTasks.length} 
-            onSearch={handleSearch}
-            onSort={handleSort}
-          />
+      <Routes>
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
 
-          <div className="mt-5">
-            <Routes>
-              {["/", "/important", "/completed", "/uncompleted"].map((path) => (
-                <Route
-                  key={path}
-                  path={path}
-                  element={
-                    <TaskList
-                      tasks={
-                        path === "/"
-                          ? sortedTasks
-                          : path === "/important"
-                          ? importantTasks
-                          : path === "/completed"
-                          ? completedTasks
-                          : uncompletedTasks
-                      }
-                      toggleImportant={toggleImportant}
-                      toggleCompleted={toggleCompleted}
-                      setTaskToDelete={setTaskToDelete}
-                      setTaskToEdit={setTaskToEdit}
-                    />
-                  }
+        <Route
+          path="/*"
+          element={
+            <ProtectedRoute>
+              <div className="app-container d-flex">
+                <SideBar
+                  directories={directories}
+                  selectedDirectory={selectedDirectory}
+                  setSelectedDirectory={setSelectedDirectory}
+                  onAddTask={handleOpenModal}
                 />
-              ))}
-            </Routes>
-          </div>
-        </div>
-      </div>
-      <Modall
-        show={isModalOpen}
-        handleClose={handleCloseModal}
-        handleAddTask={handleAddTask}
-        directories={directories}
-        selectedDirectory={selectedDirectory}
-      />
-      <ConfirmDeleteModal
-        task={taskToDelete}
-        onConfirm={handleDeleteTask}
-        onCancel={() => setTaskToDelete(null)}
-      />
-      <EditTaskModal
-        task={taskToEdit}
-        onSave={handleEditTask}
-        onCancel={() => setTaskToEdit(null)}
-      />
+                <div
+                  className="main-content-container flex-grow-1 d-flex flex-column"
+                  style={{ marginLeft: "20px" }}
+                >
+                  <Header
+                    handleOpenModal={handleOpenModal}
+                    tasksCount={tasks.length}
+                    importantCount={importantTasks.length}
+                    completedCount={completedTasks.length}
+                    uncompletedCount={uncompletedTasks.length}
+                    onSearch={handleSearch}
+                    onSort={handleSort}
+                  />
+
+                  <div className="mt-5">
+                    <Routes>
+                      {["/", "/important", "/completed", "/uncompleted"].map(
+                        (path) => (
+                          <Route
+                            key={path}
+                            path={path}
+                            element={
+                              <TaskList
+                                tasks={
+                                  path === "/"
+                                    ? sortedTasks
+                                    : path === "/important"
+                                    ? importantTasks
+                                    : path === "/completed"
+                                    ? completedTasks
+                                    : uncompletedTasks
+                                }
+                                toggleImportant={toggleImportant}
+                                toggleCompleted={toggleCompleted}
+                                setTaskToDelete={setTaskToDelete}
+                                setTaskToEdit={setTaskToEdit}
+                              />
+                            }
+                          />
+                        )
+                      )}
+                    </Routes>
+                  </div>
+                </div>
+              </div>
+              <Modall
+                show={isModalOpen}
+                handleClose={handleCloseModal}
+                handleAddTask={handleAddTask}
+                directories={directories}
+                selectedDirectory={selectedDirectory}
+              />
+              <ConfirmDeleteModal
+                task={taskToDelete}
+                onConfirm={handleDeleteTask}
+                onCancel={() => setTaskToDelete(null)}
+              />
+              <EditTaskModal
+                task={taskToEdit}
+                onSave={handleEditTask}
+                onCancel={() => setTaskToEdit(null)}
+              />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
     </Router>
   );
 }

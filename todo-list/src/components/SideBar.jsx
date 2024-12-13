@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button, Container, Modal, Form } from "react-bootstrap";
 import { FaChevronRight, FaChevronDown } from "react-icons/fa";
 
@@ -8,7 +8,8 @@ function SideBar({ onAddTask }) {
   const [directories, setDirectories] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [newDirectory, setNewDirectory] = useState(""); 
-  const location = useLocation(); 
+  const location = useLocation();
+  const navigate = useNavigate(); 
 
   const handleAddDirectory = () => {
     if (newDirectory.trim() && !directories.includes(newDirectory)) {
@@ -16,6 +17,11 @@ function SideBar({ onAddTask }) {
       setNewDirectory(""); 
       setIsModalOpen(false); 
     }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("authToken"); 
+    navigate("/login"); 
   };
 
   const isActiveRoute = (path) => location.pathname === path;
@@ -149,6 +155,16 @@ function SideBar({ onAddTask }) {
           </Button>
         </Modal.Footer>
       </Modal>
+
+      <div className="mt-auto">
+        <Button
+          variant="danger"
+          className="w-100"
+          onClick={handleLogout} 
+        >
+          Logout
+        </Button>
+      </div>
     </Container>
   );
 }
